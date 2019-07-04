@@ -1,0 +1,12 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+<div>
+    <div class="options">
+        <a href="{{ BASE }}admin/categories">Nazad na spisak kategorija</a>
+    </div>
+
+    <!--poruka korisniku-->
+    <p>{{ message|escape }}</p>
+</div>
+{% endblock %}

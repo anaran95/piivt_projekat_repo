@@ -1,0 +1,26 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+<div>
+    <div class="options">
+        <a href="{{ BASE }}admin/categories">Nazad na spisak kategorija</a>
+        <a href="{{ BASE }}admin/categories/add">Dodaj novu kategoriju</a>
+    </div>
+
+    <!--forma za izmenu kategorije-->
+    <form class="category-form" method="POST" onsubmit="return validateCategoryEditForm();">
+        <div>
+            <label for="name">Naziv kategorije:</label>
+            <input type="text" id="name4" name="name" value="{{ category.name|escape }}">
+        </div>
+        <div>
+            <button type="submit">
+                Sačuvaj izmene
+            </button>
+        </div>
+        <div class="alert alert-warning d-none" id="error-message4"></div>
+    </form>
+
+    <script src="{{ BASE }}assets/js/formValidation.js"></script>
+</div>
+{% endblock %}

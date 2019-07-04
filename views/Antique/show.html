@@ -1,0 +1,82 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+<div class="row">
+<div class="col col-12">
+<div class="card">
+<div class="card-body">
+<h1>{{ antique.title|escape }}</h1>
+<p>{{ antique.brief_description|escape }}</p>
+</div>
+</div>
+</div>
+<div class="col col-12">
+<div class="card">
+<div class="card-body">
+<h2>Izgled:</h2>
+<p>{{ antique.detailed_look_description|escape }}</p>
+</div>
+</div>
+</div>
+<div class="col col-12">
+<div class="card">
+<div class="card-body">
+<h2>Materijal:</h2>
+<p>{{ antique.detailed_material_description|escape }}</p>
+</div>
+</div>
+</div>
+<div class="col col-12">
+<div class="card">
+<div class="card-body">
+<h2>Istorijski kontekst:</h2>
+<p>{{ antique.historical_context|escape }}</p>
+</div>
+</div>
+</div>
+<div class="col col-12">
+<div class="card">
+<div class="card-body">
+<h2>Zemlja porekla:</h2>
+<p>{{ country.name|escape }}</p><!--Takodje preko set() metoda-->
+</div>
+</div>
+</div>
+<div class="col col-12">
+<div class="card">
+<div class="card-body">
+<h2>Period/godina porekla:</h2> <!--Ili jedno, ili drugo, u zavisnosti koja inf. je dostupna-->
+<p>
+    {% if antique.period_of_origin == null %}
+        {{ antique.year_of_origin }} <!--Ceo broj-->
+    {% else %}
+        {{ antique.period_of_origin|escape }}
+    {% endif %}
+</p>
+</div>
+</div>
+</div>
+{% if antique.price != null %}
+<div class="col col-12">
+<div class="card">
+<div class="card-body">
+<h2>Cena:</h2>
+<p>{{ antique.price }} EUR</p> <!--Realan broj-->
+</div>
+</div>
+</div>
+{% endif %}
+<div class="col col-12">
+<div class="card">
+<div class="card-body">
+<h2>Adresa na kojoj je antikvitet dostupan na uvid:</h2>
+<p>{{ antique.adress|escape }}</p>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
+
+{% block naslov %}
+{{  antique.title|escape }}
+{% endblock %}

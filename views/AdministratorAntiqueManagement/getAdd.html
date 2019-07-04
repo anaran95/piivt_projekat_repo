@@ -1,0 +1,81 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+<div>
+    <div class="options">
+        <a href="{{ BASE }}admin/antiques">Nazad na spisak antikviteta</a>
+    </div>
+
+    <!--forma za izmenu antikviteta-->
+    <form class="auction-form" method="POST" enctype="multipart/form-data" onsubmit="return validateAntiqueAddForm();">
+        <div>
+            <label for="title">Naslov antikviteta:</label>
+            <input type="text" id="title1" name="title" required>
+        </div>
+        <div>
+            <label for="image_path">Slika antikviteta:</label> <!--za sada tekst-->
+            <input type="file" id="image_path" name="image_path" required accept="image/jpeg">
+        </div>
+        <div>
+            <label for="detailed_look_description">Detaljan opis izgleda:</label>
+            <textarea id="detailed_look_description" name="detailed_look_description" rows="10" required pattern=".*[^\s]{2,}.*"></textarea>
+        </div>
+        <div>
+            <label for="detailed_material_description">Detaljan opis materijala:</label>
+            <textarea id="detailed_material_description" name="detailed_material_description" rows="10" required pattern=".*[^\s]{2,}.*"></textarea>
+        </div>
+        <div>
+            <label for="brief_description">Kratak opis:</label>
+            <textarea id="brief_description1" name="brief_description" rows="10" required></textarea>
+        </div>
+        <div>
+            <label for="historical_context">Istorijski kontekst:</label>
+            <textarea id="historical_context" name="historical_context" rows="10" required pattern=".*[^\s]{2,}.*"></textarea>
+        </div>
+        <div>
+            <label for="country_of_origin_id">Zemlja porekla:</label>
+            <select id="country_of_origin_id" name="country_of_origin_id">
+                {% for country in countries %}
+                    <option value="{{ country.country_of_origin_id }}">
+                        {{ country.name|escape }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="period_of_origin">Period porekla (opciono, ako je popunjena godina):</label>
+            <textarea id="period_of_origin" name="period_of_origin" rows="2" pattern=".*[^\s]{2,}.*"></textarea>
+        </div>
+        <div>
+            <label for="year_of_origin">Godina porekla (opciono, ako je popunjen period):</label>
+            <input type="text" id="year_of_origin" name="year_of_origin" pattern="[1-2]{1}[0-9]{3}">
+        </div>
+        <div>
+            <label for="price">Cena (opciono):</label>
+            <input type="text" id="price" name="price" pattern = "[1-9][0-9]{0,}(\.[0-9]{2,})?">
+        </div>
+        <div>
+            <label for="adress">Adresa na kojoj je dostupan na uvid:</label>
+            <textarea id="adress" name="adress" rows="2" required pattern=".*[^\s]{2,}.*"></textarea>
+        </div>
+        <div>
+            <label for="kategorije[]">Kategorije kojima pripada (Ctrl + klik za izbor vise opcija):</label>
+            <select id="kategorije" name="kategorije[]" multiple="multiple">
+                {% for category in categories %}
+                    <option value="{{ category.category_id }}">
+                        {{ category.name|escape }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <button type="submit">
+                Dodaj
+            </button>
+        </div>
+        <div class="alert alert-warning d-none" id="error-message1"></div>
+    </form>
+
+    <script src="{{ BASE }}assets/js/formValidation.js"></script>
+</div>
+{% endblock %}

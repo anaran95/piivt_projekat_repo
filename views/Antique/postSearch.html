@@ -1,0 +1,33 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+<div class="row">
+
+    {% for antique in antiques %}
+    <div class="card border-primary col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 text-center category">
+        <a href="{{ BASE }}antique/{{ antique.antique_id }}" class="antique-image"> <!--OVDE TREBA KLASA -image ? -->
+            <img class="card-img-top" src="{{ BASE }}assets/uploads/id{{ antique.antique_id }}.jpg" alt="Slika - {{ antique.antique_id }}"> <!--PROMENITI SRC KASNIJE-->
+        </a>
+    
+        <a href="{{ BASE }}antique/{{ antique.antique_id }}" class="card-title"><!--Ruta ka podacima o antikvitetu-->
+            {{ antique.title|escape }}
+        </a>
+        <span class="antique-brief-description">{{ antique.brief_description|escape }}</span> <!--Za sada ovo samo-->
+        <span class="antique-price">
+            {% if antique.price != null %}
+                {{ antique.price }} &euro;
+            {% else %}
+                Nije na prodaju
+            {% endif %}
+        </span>
+        <span class="antique-address">{{ antique.adress }}</span>
+        
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}
+
+{% block naslov %}
+Rezultati pretrage
+{% endblock %}

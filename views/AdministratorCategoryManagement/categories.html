@@ -1,0 +1,24 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+<div class="row">
+
+    <!--Kasnije mogu da se organizuju u tabelu (klasicni CMS-ovi)-->
+    <div class="col text-center">
+        
+            {% for category in categories %}
+                
+                    <div class="card">
+                    <a href="{{ BASE }}admin/categories/edit/{{ category.category_id }}">
+                        {{ category.name|escape }}
+                    </a>
+                    </div>
+            {% endfor %}
+        
+    </div>
+
+    <div class="col">
+        <a  class="btn btn-primary" href="{{ BASE }}admin/categories/add" role="button">Dodaj novu kategoriju</a>
+    </div>
+</div>
+{% endblock %}

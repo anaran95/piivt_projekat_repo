@@ -1,0 +1,17 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+<div class="row">
+    <!--Ovo je dashboard za administratora - ADMIN PROFILE-->
+    <div class="col text-center">
+    <div class="card admin-choice">
+    <a href="{{ BASE }}admin/categories" class="card-text">Prikaži sve kategorije</a>
+    </div>
+    </div>
+    <div class="col text-center">
+    <div class="card admin-choice">
+    <a href="{{ BASE }}admin/antiques"  class="card-text">Prikaži sve antikvitete</a>
+    </div>
+    </div>
+</div>
+{% endblock %}

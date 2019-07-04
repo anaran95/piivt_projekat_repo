@@ -1,0 +1,22 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+<!--<p>{{ podatak }}</p>-->
+<div class="row">
+    {% for category in categories %} <!-- Za svaki element dobijene liste kategorija iz spoljasnjeg okruzenja (MainController.php->home() metod pozvan preko dispecerske komponente aplikacije, index.php) -->
+        <div class="card border-primary col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 text-center category">
+            <img class="card-img-top" alt="Slika - {{ category.category_id }}" src="{{ BASE }}assets/img/cat{{ category.category_id }}.jpg">
+            <div class="card-body">
+                <a href="{{ BASE }}category/{{ category.category_id }}" class="card-title"> <!--Izlistati linkove koji ce voditi na datu formiranu putanju posebnu za svaku kategoriju-->
+                    {{ category.name|escape }}   <!--Nazivi linkova su imena kategorija-->
+                    
+                </a>
+            </div>
+        </div>
+        <!--<a href="{{ BASE }}category/{{ category.category_id }}">
+            <img class="category-image" alt="Slika - {{ category.category_id }}" src="{{ BASE }}assets/img/cat{{ category.category_id }}.jpg">
+        </a>-->
+        
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+<div class="row">
+    
+
+    <!--Kasnije mogu da se organizuju u tabelu (klasicni CMS-ovi)-->
+    <div class="col text-center">
+        
+            {% for antique in antiques %}
+                
+                    <div class="card">
+                    <a href="{{ BASE }}admin/antiques/edit/{{ antique.antique_id }}">
+                        {{ antique.title|escape }}
+                    </a>
+                    </div>
+            {% endfor %}
+        
+    </div>
+    <div class="col">
+        <a class="btn btn-primary" href="{{ BASE }}admin/antiques/add" role="button">Dodaj novi antikvitet</a>
+    </div>
+</div>
+{% endblock %}

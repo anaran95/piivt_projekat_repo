@@ -1,0 +1,76 @@
+<!doctype html><!--fajl koji sluzi kao osnovni sablon za integraciju view-ova (delova html koda) i koji ce svi view-ovi da naslede-->
+<html>
+    <head>
+        <title>K&amp;A - {% block naslov %}Početna{% endblock %}</title>
+        <meta charset="utf-8">
+        <!--<link rel="stylesheet" href="{{ BASE }}assets/css/main.css">-->
+        <link rel="stylesheet" href="{{ BASE }}assets/libs/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ BASE }}assets/libs/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ BASE }}assets/css/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <div class="row">
+                    <div class="col col-sm"> <!--Moze da ima vise bannera koji se slide-uju naizmenicno u krug-->
+                        <a href="{{ BASE }}">
+                            <img class="site-banner" src="{{ BASE }}assets/img/site_banner.png" alt="Banner 1"><!--Za sada ovaj folder ne postoji-->
+                        </a>
+                    </div>
+                    <div class="col col-sm">
+                        <div class="social-icons text-right">
+                            <a href="#"><img src="{{ BASE }}assets/img/social/linkedin.png" alt="Li"></a>
+                            <a href="#"><img src="{{ BASE }}assets/img/social/facebook.png" alt="Fb"></a>
+                            <a href="#"><img src="{{ BASE }}assets/img/social/twitter.png" alt="Tw"></a>
+                            <a href="#"><img src="{{ BASE }}assets/img/social/google-plus.png" alt="Gp"></a>
+                            <a href="#"><img src="{{ BASE }}assets/img/social/youtube.png" alt="Yt"></a>
+                        </div>
+                        <div class="search-box">
+                            <form method="post" action="{{ BASE }}search">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" name="q" class="form-control"
+                                               placeholder="Ključne reči pretrage">
+                                        <button type="submit" 
+                                                class="btn btn-primary input-group-append">Search</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+                <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-item nav-link" href="{{ BASE }}">Početna</a>
+                            <a class="nav-item nav-link" href="{{ BASE }}categories">Kategorije</a><!--Kasnije cemo promeniti da home page ne prikazuje listu kategorija, vec da ovo bude link za to-->
+                            <a class="nav-item nav-link" href="{{ BASE }}admin/profile">Profil</a><!--Za sada kao da smo ulogovani korisnici, mozda KOD NAS treba UKLONITI ovaj link-->
+                            <a class="nav-item nav-link" href="{{ BASE }}contact">Kontakt</a>
+                            <a class="nav-item nav-link" href="{{ BASE }}admin/logout">Odjava</a><!--Za sada-->
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <main>
+                {% block main %}
+                {% endblock %}
+            </main>
+            <footer class="page-footer font-small">
+                    <div class="footer-copyright text-center py-3">
+                            &copy; 2019 - Antikviteti K&amp;A
+                    </div>
+            </footer>
+        </div>
+        <!--<script>const BASE = '{{ BASE }}';</script>-->
+        <!--Ovde ako budemo imali potrebu za skriptom (.js), koristimo src="{{BASE}}/assets/js/nasa_sktipta.js", gde je BASE prethodno definisana konstanta-->
+        <script src="{{ BASE }}assets/libs/jquery/dist/jquery.min.js"></script>
+        <script src="{{ BASE }}assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    </body>
+</html>

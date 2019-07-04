@@ -1,0 +1,125 @@
+.social-icons { 
+    margin-bottom: 10px;
+ }
+
+.social-icons img {
+    background-color: blue;
+    margin: 0 10px;
+    height: 16px;
+    width: 16px;
+}
+
+.category {
+    padding: 50px 0px;
+}
+
+.antique_link {
+    list-style-type: none;
+}
+
+
+
+/* 
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    margin: 0 auto;
+    width: 900px;
+}
+
+.site-header {
+    display: grid;
+    grid-template-areas: "banner banner banner social"
+                         "banner banner banner search"
+                         "menu   menu   menu   menu  ";
+}
+
+.banners { grid-area: banner; background-color: green; border: 1px solid; }
+.social-icons { grid-area: social; text-align: right; border: 1px solid; }
+.search-box { grid-area: search; text-align: right; border: 1px solid; }
+
+.social-icons img {
+    margin: 0 10px;
+    height: 16px;
+    width: 16px;
+}
+
+#main-menu {
+    margin: 20px 0px; 
+    grid-area: menu; border: 1px solid;
+}
+
+#main-menu > ul {
+    list-style: none;
+    display: flex;          
+    flex-direction: row;
+    align-items: stretch;   
+    align-content: stretch; 
+}
+
+#main-menu > ul > li {
+    flex-grow: 1; 
+    text-align: center;
+    border: 1px solid;
+}
+
+#main-menu > ul > li:hover {
+    background: greenyellow; 
+}
+
+#main-menu > ul > li > a {
+    text-decoration: none;
+    padding: 10px 0px;
+    display: block;
+    color: black;
+}
+
+.categories { 
+    display: flex;         
+    flex-direction: row;
+    align-content: stretch; 
+    flex-wrap: wrap; 
+}
+
+.category { 
+    width: 25%; 
+    text-align: center;
+    padding: 50px 100px; 
+    border: 1px solid #ccc;
+    background: rgba(200, 200, 200, 0.2);
+    text-decoration: none;
+    color: black;
+}
+
+.category:hover {
+    border: 1px solid black;
+    background: rgba(200, 200, 200, 0.6);
+}
+
+.site-footer {
+    text-align: center;
+    margin-top: 40px;
+    border: 1px solid;
+}
+
+.antique { 
+    display: grid;
+    grid-template-areas: "title  title            "
+                         "image  brief-description" 
+                         "price  address          ";
+    grid-template-columns: 120px auto; 
+    border-bottom: 1px solid #444;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+
+.antique > .antique-title { grid-area: title; }
+.antique > .antique-image { grid-area: image; height: 100px; width: 120px; } 
+.antique > .antique-brief-description { grid-area: brief-description; }
+.antique > .antique-price { grid-area: price; }
+.antique > .antique-address { grid-area: address; text-align: right;}
+*/

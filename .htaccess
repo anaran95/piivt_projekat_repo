@@ -1,0 +1,14 @@
+# url rewriting mehanizam - za rad sa customizovanim user-friendly rutama u aplikaciji
+# 1. aktiviramo rewrite engine
+RewriteEngine On
+# 2. definisemo osnovni direktorijum unutar kojeg ce se primenjivati sva sledeca napisana pravila
+# '/PIiVT_Projekat/' <=> 'http://localhost/PIiVT_Projekat/'
+#RewriteBase /PIiVT_Projekat/ //NE MORA ZBOG TOGA STO IMAMO BASE KONSTANTU U $data ZA TWIG (index.php), iz Configuration.php
+# NAPOMENA: sledeci uslovi ce imati efekta tek kada kod bude organizovan na specifican nacin
+# 3. zaobilazimo fajlove na putanji koji se preklapaju sa zahtevanim linkom, ako takvi postoje
+RewriteCond %{REQUEST_FILENAME} !-f
+# 4. zaobilazimo direktorijume na putanji koji se preklapaju sa zahtevanim linkom, ako takvi postoje
+RewriteCond %{REQUEST_FILENAME} !-d
+# 5. definisemo (default) pravilo na osnovu kog se bilo koji set karaktera zahtevanog linka (u obliku stringa) upucuje ka dispeceru index.php, upisan u parametar URL
+# './index.php' == 'http://localhost/PIiVT_Projekat/index.php'
+RewriteRule ^(.*)$ ./index.php?URL=$1 [L]
